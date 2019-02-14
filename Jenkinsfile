@@ -1,9 +1,9 @@
 pipeline {
     agent any
-    
+
     stages {
       stage('Generate') {
-          node {
+          steps {
               checkout scm
               stash 'source'
           }
