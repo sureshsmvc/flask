@@ -1,10 +1,13 @@
 pipeline {
     agent any
-
-    node {
-      checkout scm
-    }
+    
     stages {
+      stage('Generate') {
+          node {
+              checkout scm
+              stash 'source'
+          }
+        }
         stage('Build') {
             steps {
                 echo 'Building..'
